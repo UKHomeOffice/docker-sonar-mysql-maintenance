@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    db: sonar
+  name: sonar-mysql-maintenance
+spec:
+  containers:
+  - image: quay.io/ukhomeofficedigital/sonar-mysql-maintenance:v0.1.0
+    name: sonar-mysql-maintenance
+    env:
+    - name: MYSQL_HOST
+      value: REPLACEME
+    - name: MYSQL_PASSWORD_PATH
+      value: /secrets/password.txt
+    volumeMounts:
+    - mountPath: /secrets
+      name: mysql-password
+  imagePullPolicy: Always
+  restartPolicy: Never
+  volumes:
+    -
+      name: mysql-password
+      secret:
+        secretName: "sonarqube-mysql-password"
