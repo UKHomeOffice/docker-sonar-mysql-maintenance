@@ -1,5 +1,7 @@
 # Docker Sonar Maintenance Container
 
+[![Build Status](https://travis-ci.org/UKHomeOffice/docker-sonar-mysql-maintenance.svg?branch=master)](https://travis-ci.org/UKHomeOffice/docker-sonar-mysql-maintenance)
+
 This is a one shot container that will create the missing Sonar DB in your database, and also ensure the password is up 
 to date (and not the default one).
 
